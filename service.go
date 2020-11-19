@@ -43,8 +43,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 func gpaHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	n := 2 + 2*rand.Float32()
-	fmt.Fprintln(w, "GPA of", vars["name"], "is", n)
+	n := 2 + 3*rand.Float32()
+	fmt.Fprintf(w, "GPA of %s is %.2f\n", vars["name"], n)
 }
 
 func crawl(w http.ResponseWriter, r *http.Request) {
