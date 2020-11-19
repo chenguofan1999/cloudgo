@@ -22,7 +22,7 @@ func NewServer() *negroni.Negroni {
 }
 
 func defaultHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Some descriptions here")
+	fmt.Fprintln(w, "Whatever")
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
