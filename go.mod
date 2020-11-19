@@ -1,4 +1,4 @@
-module github.com/chenguofan1999/couldgo
+module github.com/chenguofan1999/cloudgo
 
 go 1.15
 
