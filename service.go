@@ -25,8 +25,8 @@ func NewTestServer() *negroni.Negroni {
 func NewServer() *negroni.Negroni {
 	router := mux.NewRouter()
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(""))))
+	router.HandleFunc("/login/", login)
 
-	router.PathPrefix("/").HandlerFunc(defaultHandler)
 	n := negroni.Classic()
 	n.UseHandler(router)
 	return n
