@@ -15,6 +15,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	} else {
 		//请求的是登录数据，那么执行登录的逻辑判断
 		r.ParseForm()
+		fmt.Println(r.Form)
 		fmt.Println("username:", r.Form["username"])
 		fmt.Println("password:", r.Form["password"])
 	}
