@@ -1,6 +1,6 @@
 package cloudgo
 
-var mainPageHTML = `<!DOCTYPE html>
+var testPageHTML = `<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,7 +8,7 @@ var mainPageHTML = `<!DOCTYPE html>
 </head>
 
 <body style="color: rgb(0, 0, 0); background-color: rgb(240, 240, 240);">
-    <p style="text-align: center;"><span style="font-family: Impact, Charcoal, sans-serif; font-size: 28px; color: rgb(40, 50, 78);">CloudGo</span></p>
+    <p style="text-align: center;"><span style="font-family: Impact, Charcoal, sans-serif; font-size: 28px; color: rgb(40, 50, 78);">CloudGo测试</span></p>
     <h3><strong><span style="color: rgb(71, 85, 119); font-size: 24px;">云服务(员)</span></strong></h3>
     <div><span style="font-family: Verdana, Geneva, sans-serif; color: rgb(40, 50, 78); font-size: 18px;">./hello/[your name]</span></div>
     <p><span style="font-family: Tahoma, Geneva, sans-serif; color: rgb(204, 204, 204); font-size: 18px;"><a href="./hello/Dave">example: Dave</a></span></p>
