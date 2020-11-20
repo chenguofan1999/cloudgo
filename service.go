@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"net/http"
+	"strconv"
 	"strings"
 
 	"github.com/codegangsta/negroni"
@@ -17,6 +18,7 @@ func NewServer() *negroni.Negroni {
 	router.HandleFunc("/hello/{name}", helloHandler)
 	router.HandleFunc("/GPA/{name}", gpaHandler)
 	router.HandleFunc("/crawl/", crawl)
+	router.HandleFunc("/calc/{mode}", calc)
 	router.PathPrefix("/").HandlerFunc(defaultHandler)
 
 	n := negroni.Classic()
@@ -27,9 +29,15 @@ func NewServer() *negroni.Negroni {
 func defaultHandler(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 
+	fmt.Fprintln(w, `<p style="text-align: center;"><span style="font-family: Impact, Charcoal, sans-serif; font-size: 24px; color: rgb(40, 50, 78);">CloudGo</span></p>`)
+
+	fmt.Fprintln(w, `<h3><strong><span style="color: rgb(71, 85, 119);">测试功能</span></strong></h3>`)
 	fmt.Fprintln(w, "1. /hello/[your name]")
 	fmt.Fprintln(w, "2. /GPA/[your name]")
 	fmt.Fprintln(w, "3. /crawl/?url=[your URL]")
+
+	fmt.Fprintln(w, `<h3><strong><span style="color: rgb(71, 85, 119);">云计算(器)</span></strong></h3>`)
+	fmt.Fprintln(w, "4: /calc/{add/sub/mul/div}/?a=[?]&b=[?]")
 
 	for k, v := range r.Form {
 		fmt.Println(k, " : ", strings.Join(v, ""))
@@ -41,14 +49,33 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Hello, ", vars["name"])
 }
 
+func gpaHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	n := 2 + 2*rand.Float32()
+	fmt.Fprintln(w, "GPA of ", vars["name"], " = ", n)
+}
+
 func crawl(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	s, _ := links.Extract(r.Form["url"][0])
 	fmt.Fprintln(w, "Found links:\n", strings.Join(s, "\n"))
 }
 
-func gpaHandler(w http.ResponseWriter, r *http.Request) {
+func calc(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	n := 2 + 2*rand.Float32()
-	fmt.Fprintln(w, "GPA of ", vars["name"], " = ", n)
+	r.ParseForm()
+	a, _ := strconv.Atoi(r.Form["a"][0])
+	b, _ := strconv.Atoi(r.Form["b"][0])
+	var c int
+	switch vars["mode"] {
+	case "add":
+		c = a + b
+	case "sub":
+		c = a - b
+	case "mul":
+		c = a * b
+	case "div":
+		c = a / b
+	}
+	fmt.Fprintln(w, `<h4><strong><span style="color: rgb(71, 85, 119); font-size: 60px;">`, c, `</span></strong></h4>`)
 }
