@@ -77,5 +77,5 @@ func calc(w http.ResponseWriter, r *http.Request) {
 	case "div":
 		c = a / b
 	}
-	fmt.Fprintln(w, `c`)
+	fmt.Fprintln(w, c)
 }
