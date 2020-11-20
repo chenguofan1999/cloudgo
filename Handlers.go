@@ -10,7 +10,7 @@ import (
 func login(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //获取请求的方法
 	if r.Method == "GET" {
-		t, _ := template.ParseFiles("login.gtpl")
+		t, _ := template.ParseFiles("static/login.gtpl")
 		log.Println(t.Execute(w, nil))
 	} else {
 		//请求的是登录数据，那么执行登录的逻辑判断
