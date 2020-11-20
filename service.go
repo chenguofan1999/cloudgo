@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// NewServer returns a server
+// NewTestServer returns a test server
 func NewTestServer() *negroni.Negroni {
 	router := mux.NewRouter()
 	router.HandleFunc("/hello/{name}", helloHandler)
@@ -21,6 +21,7 @@ func NewTestServer() *negroni.Negroni {
 	return n
 }
 
+// NewServer returns a usable server
 func NewServer() *negroni.Negroni {
 	router := mux.NewRouter()
 	router.Handle("/static/", http.FileServer(http.Dir("")))
