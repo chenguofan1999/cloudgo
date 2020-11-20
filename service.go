@@ -18,7 +18,7 @@ func NewServer() *negroni.Negroni {
 	router.HandleFunc("/hello/{name}", helloHandler)
 	router.HandleFunc("/GPA/{name}", gpaHandler)
 	router.HandleFunc("/crawl/", crawl)
-	router.HandleFunc("/calc/{mode}", calc)
+	router.HandleFunc("/calc/{mode}/", calc)
 	router.PathPrefix("/").HandlerFunc(defaultHandler)
 
 	n := negroni.Classic()
@@ -32,9 +32,9 @@ func defaultHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, `<p style="text-align: center;"><span style="font-family: Impact, Charcoal, sans-serif; font-size: 24px; color: rgb(40, 50, 78);">CloudGo</span></p>`)
 
 	fmt.Fprintln(w, `<h3><strong><span style="color: rgb(71, 85, 119);">测试功能</span></strong></h3>`)
-	fmt.Fprintln(w, "1. /hello/[your name]")
-	fmt.Fprintln(w, "2. /GPA/[your name]")
-	fmt.Fprintln(w, "3. /crawl/?url=[your URL]")
+	fmt.Fprintln(w, "1. /hello/[your name]<p><br></p>")
+	fmt.Fprintln(w, "2. /GPA/[your name]<p><br></p>")
+	fmt.Fprintln(w, "3. /crawl/?url=[your URL]<p><br></p>")
 
 	fmt.Fprintln(w, `<h3><strong><span style="color: rgb(71, 85, 119);">云计算(器)</span></strong></h3>`)
 	fmt.Fprintln(w, "4: /calc/{add/sub/mul/div}/?a=[?]&b=[?]")
@@ -77,5 +77,5 @@ func calc(w http.ResponseWriter, r *http.Request) {
 	case "div":
 		c = a / b
 	}
-	fmt.Fprintln(w, `<h4><strong><span style="color: rgb(71, 85, 119); font-size: 60px;">`, c, `</span></strong></h4>`)
+	fmt.Fprintln(w, `<h4><strong><span style="color: rgb(71, 85, 119); font-size: 60px;">`+strconv.Itoa(c)+`</span></strong></h4>`)
 }
