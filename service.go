@@ -8,7 +8,7 @@ import (
 )
 
 // NewServer returns a server
-func newTestServer() *negroni.Negroni {
+func NewTestServer() *negroni.Negroni {
 	router := mux.NewRouter()
 	router.HandleFunc("/hello/{name}", helloHandler)
 	router.HandleFunc("/GPA/{name}", gpaHandler)
@@ -21,7 +21,7 @@ func newTestServer() *negroni.Negroni {
 	return n
 }
 
-func newServer() *negroni.Negroni {
+func NewServer() *negroni.Negroni {
 	router := mux.NewRouter()
 	router.Handle("/static/", http.FileServer(http.Dir("")))
 
