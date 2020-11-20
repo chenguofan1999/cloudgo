@@ -17,12 +17,15 @@ func NewServer() *negroni.Negroni {
 	router.HandleFunc("/hello/{name}", helloHandler)
 	router.HandleFunc("/GPA/{name}", gpaHandler)
 	router.PathPrefix("/").HandlerFunc(defaultHandler)
+
 	n := negroni.Classic()
 	n.UseHandler(router)
 	return n
 }
 
 func defaultHandler(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+
 	fmt.Fprintln(w, "1. /hello/[your name]")
 	fmt.Fprintln(w, "2. /GPA/[your name]")
 
