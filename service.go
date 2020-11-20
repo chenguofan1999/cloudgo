@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"math/rand"
 	"net/http"
+	"strings"
 
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-	//	"github.com/unrolled/render"
+	//"github.com/unrolled/render"
 )
 
 // NewServer returns a server
@@ -24,6 +25,10 @@ func NewServer() *negroni.Negroni {
 func defaultHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "1. /hello/[your name]")
 	fmt.Fprintln(w, "2. /GPA/[your name]")
+
+	for k, v := range r.Form {
+		fmt.Println(k, " : ", strings.Join(v, ""))
+	}
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
