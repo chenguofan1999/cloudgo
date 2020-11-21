@@ -12,7 +12,8 @@ import (
 func loginHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //获取请求的方法
 	if r.Method == "GET" {
-		t, _ := template.ParseFiles("login/login.gtpl")
+		// 此地址相对于 main 程序位置
+		t, _ := template.ParseFiles("assets/testInput/login.gtpl")
 		log.Println(t.Execute(w, nil))
 	} else {
 		//请求的是登录数据，那么执行登录的逻辑判断
