@@ -45,3 +45,27 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 }
+
+func mainPageHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, `<!DOCTYPE html>
+	<html>
+	
+	<head>
+		<title></title>
+	</head>
+	
+	<body style="color: rgb(0, 0, 0); background-color: rgb(240, 240, 240);">
+		<h2 style="text-align: center;"><span style="font-family: Impact, Charcoal, sans-serif; color: rgb(40, 50, 78);">cloudGo</span></h2>
+		<p><span style="font-family: Verdana, Geneva, sans-serif; color: rgb(40, 50, 78);">1. 静态文件服务</span></p>
+		<p><span style="font-family: Verdana, Geneva, sans-serif; color: rgb(40, 50, 78);"><em>./static/</em></span></p>
+		<p><a href="./static/"><span style="color: rgb(71, 85, 119);">转到静态文件服务</span></a></p>
+		<p><span style="font-family: Verdana, Geneva, sans-serif; color: rgb(40, 50, 78);">2. 简单js访问</span></p>
+		<p><span style="font-family: Verdana, Geneva, sans-serif; color: rgb(40, 50, 78);"><em>./js</em></span></p>
+		<p><a href="./js"><span style="color: rgb(71, 85, 119);">转到简单js访问</span></a></p>
+		<p><span style="font-family: Verdana, Geneva, sans-serif; color: rgb(40, 50, 78);">3. 表单</span></p>
+		<p><span style="font-family: Verdana, Geneva, sans-serif; color: rgb(40, 50, 78);"><em>./login</em></span></p>
+		<p><span style="color: rgb(71, 85, 119);"><a href="./login">转到表单</a></span></p>
+	</body>
+	
+	</html>`)
+}

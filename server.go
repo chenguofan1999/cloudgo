@@ -32,6 +32,8 @@ func NewServer() *negroni.Negroni {
 	// 不要用"/login/", 否则 post 时不会触发该 handler
 	router.HandleFunc("/login", loginHandler)
 
+	router.PathPrefix("/").HandlerFunc(mainPageHandler)
+
 	n := negroni.Classic()
 	n.UseHandler(router)
 	return n
