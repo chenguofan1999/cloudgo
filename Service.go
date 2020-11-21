@@ -24,7 +24,7 @@ func NewTestServer() *negroni.Negroni {
 // NewServer returns a usable server
 func NewServer() *negroni.Negroni {
 	router := mux.NewRouter()
-	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("assets"))))
 
 	// 不要用"/login/", 否则 post 时不会触发该 handler
 	router.HandleFunc("/login", loginHandler)
