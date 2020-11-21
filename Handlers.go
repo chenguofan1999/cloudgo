@@ -5,9 +5,11 @@ import (
 	"log"
 	"net/http"
 	"text/template"
+
+	"github.com/unrolled/render"
 )
 
-func login(w http.ResponseWriter, r *http.Request) {
+func loginHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //获取请求的方法
 	if r.Method == "GET" {
 		t, _ := template.ParseFiles("static/login.gtpl")
@@ -19,4 +21,14 @@ func login(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("username:", r.Form["username"])
 		fmt.Println("password:", r.Form["password"])
 	}
+}
+
+func jsHandler(w http.ResponseWriter, req *http.Request) {
+	formatter := render.New(render.Options{
+		IndentJSON: true,
+	})
+	formatter.JSON(w, http.StatusOK, struct {
+		ID      string `json:"id"`
+		Content string `json:"content"`
+	}{ID: "8675309", Content: "Hello from Go!"})
 }
