@@ -31,5 +31,18 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(r.Form)
 		fmt.Println("username:", r.Form["username"])
 		fmt.Println("password:", r.Form["password"])
+
+		formatter := render.New(render.Options{
+			Directory:  "testInput/templates",
+			Extensions: []string{".html"},
+			IndentJSON: true,
+		})
+
+		formatter.HTML(w, http.StatusOK, "index", struct {
+			ID      string `json:"id"`
+			Content string `json:"content"`
+		}{ID: "18342000", Content: "Appended by web server!"})
+	}
+
 	}
 }
