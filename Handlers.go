@@ -9,6 +9,16 @@ import (
 	"github.com/unrolled/render"
 )
 
+func jsonHandler(w http.ResponseWriter, req *http.Request) {
+	formatter := render.New(render.Options{
+		IndentJSON: true,
+	})
+	formatter.JSON(w, http.StatusOK, struct {
+		ID      string `json:"id"`
+		Content string `json:"content"`
+	}{ID: "8675309", Content: "Hello from Go!"})
+}
+
 func loginHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //获取请求的方法
 	if r.Method == "GET" {
@@ -22,14 +32,4 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("username:", r.Form["username"])
 		fmt.Println("password:", r.Form["password"])
 	}
-}
-
-func jsTestHandler(w http.ResponseWriter, req *http.Request) {
-	formatter := render.New(render.Options{
-		IndentJSON: true,
-	})
-	formatter.JSON(w, http.StatusOK, struct {
-		ID      string `json:"id"`
-		Content string `json:"content"`
-	}{ID: "8675309", Content: "Hello from Go!"})
 }
