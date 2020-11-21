@@ -39,9 +39,9 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		})
 
 		formatter.HTML(w, http.StatusOK, "index", struct {
-			ID      string `json:"id"`
-			Content string `json:"content"`
-		}{ID: "18342000", Content: "Appended by web server!"})
+			Un string `json:"username"`
+			Pw string `json:"password"`
+		}{Un: r.Form["username"][0], Pw: r.Form["password"][0]})
 	}
 
 }
