@@ -1,0 +1,22 @@
+a:link, a:visited {
+    background-color: #b80a0a;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 5px 0 rgb(201, 83, 83);
+  }
+  
+a:hover, a:active {
+    background-color: rgb(83, 82, 82);
+    box-shadow: 0 5px 0 rgb(134, 134, 134);
+}
+
+body {
+    text-align: center;
+    width: 40%; 
+    margin: 0 auto; 
+    color: rgb(0, 0, 0); 
+    background-color: rgb(240, 240, 240);
+}
