@@ -44,5 +44,4 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		}{ID: "18342000", Content: "Appended by web server!"})
 	}
 
-	}
 }
