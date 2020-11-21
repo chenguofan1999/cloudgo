@@ -32,9 +32,6 @@ func NewServer() *negroni.Negroni {
 
 	router.HandleFunc("/js/test", jsTestHandler)
 
-	router.PathPrefix("/js/").Handler(http.StripPrefix("/js/", http.FileServer(http.Dir("assets/testJs"))))
-	router.HandleFunc("/js/", jsHandler)
-
 	n := negroni.Classic()
 	n.UseHandler(router)
 	return n
