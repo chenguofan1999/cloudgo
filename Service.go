@@ -14,6 +14,7 @@ func NewTestServer() *negroni.Negroni {
 	router.HandleFunc("/GPA/{name}", gpaHandler)
 	router.HandleFunc("/crawl/", crawl)
 	router.HandleFunc("/calc/{mode}/", calc)
+
 	router.PathPrefix("/").HandlerFunc(defaultHandler)
 
 	n := negroni.Classic()
@@ -30,7 +31,8 @@ func NewServer() *negroni.Negroni {
 	router.HandleFunc("/login", loginHandler)
 
 	router.HandleFunc("/js/test", jsTestHandler)
-	//router.HandleFunc("/js", jsHandler)
+
+	router.PathPrefix("/js/").Handler(http.StripPrefix("/js/", http.FileServer(http.Dir("assets/testJs"))))
 
 	n := negroni.Classic()
 	n.UseHandler(router)
