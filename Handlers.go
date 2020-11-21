@@ -24,6 +24,16 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func jsTestHandler(w http.ResponseWriter, req *http.Request) {
+	formatter := render.New(render.Options{
+		IndentJSON: true,
+	})
+	formatter.JSON(w, http.StatusOK, struct {
+		ID      string `json:"id"`
+		Content string `json:"content"`
+	}{ID: "8675309", Content: "Hello from Go!"})
+}
+
 func jsHandler(w http.ResponseWriter, req *http.Request) {
 	formatter := render.New(render.Options{
 		IndentJSON: true,
