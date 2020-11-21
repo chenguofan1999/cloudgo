@@ -33,7 +33,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("password:", r.Form["password"])
 
 		formatter := render.New(render.Options{
-			Directory:  "testInput/templates",
+			Directory:  "templates",
 			Extensions: []string{".html"},
 			IndentJSON: true,
 		})
