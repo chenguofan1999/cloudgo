@@ -1,15 +1,21 @@
 # cloudgo
 
-## 这是什么？
 
-这是中山大学服务计算课(2020)的[ 开发 web 服务程序 ](https://pmlpml.gitee.io/service-computing/post/ex-cloudgo-start/)作业的我的仓库。
+[![Sourcegraph](https://img.shields.io/badge/view%20on-Sourcegraph-brightgreen.svg?style=for-the-badge&logo=sourcegraph)](https://sourcegraph.com/github.com/chenguofan1999/cloudgo)
 
-cloudgo是一个 go web 服务程序，提供：
+![](pics/cloudgo2.png)
+
+
+## 这是什么?
+
+这是中山大学服务计算课(2020)的[ 开发 web 服务程序 ](https://pmlpml.gitee.io/service-computing/post/ex-cloudgo-start/)作业，我的实现。
+
+cloudgo 是一个 go web 服务程序，提供：
 - 静态文件服务
 - 简单 js 访问
 - 表单提取服务
 
-**注意：** 如果你是TA，请前往 [报告文档](report.md) 查看curl、apache的测试。  
+**注意：** 如果你是TA，请前往 [报告文档](report.md) 查看 curl、apache 的测试。  
 **注意：** 这是一个初学者项目，不值得开发者参考。
 
 ## 部署和使用
