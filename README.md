@@ -95,7 +95,13 @@ router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServ
 
 ### 简单的 js 访问
 
-事实上在 `"/"`上也通过 `html.FileServer` 建立了文件服务，对应的 Dir 就是`main.go` 所在的位置，因此 `localhost:5990/assets/testJS/` 将进入 `/assets/testJS/` 文件夹。这里放置了演示的 `index.html`，因此在通过 go 提供的静态文件服务访问该文件夹时会直接进入对应的 web 页面。
+事实上在 `"/"`上也通过 `html.FileServer` 建立了文件服务，对应的 Dir 就是`main.go` 所在的位置:
+
+```go
+router.PathPrefix("/").Handler(http.FileServer(http.Dir("")))
+```
+
+因此 `localhost:5990/assets/testJS/` 将进入 `/assets/testJS/` 文件夹。这里放置了演示的 `index.html`，因此在通过 go 提供的静态文件服务访问该文件夹时会直接进入对应的 web 页面。
 
 
 注意，原始的 `index.html` 文件中并无 ID 和 Content 冒号后的内容，
