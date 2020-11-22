@@ -40,6 +40,14 @@ go run main.go
 
 ![](pics/mainPage.png)
 
+终端显示：
+
+```
+$ go run main.go
+[negroni] listening on :5990
+[negroni] 2020-11-22T11:48:19+08:00 | 200 |      2.9369ms | localhost:5990 | GET /
+```
+
 ### 静态文件服务
 
 静态文件服务的 url 是 `localhost:5990/static/` , 主页面提供了跳转按钮。
@@ -54,13 +62,7 @@ go run main.go
 
 ![](pics/static3.png)
 
-终端显示：
 
-```
-$ go run main.go
-[negroni] listening on :5990
-[negroni] 2020-11-22T11:48:19+08:00 | 200 |      2.9369ms | localhost:5990 | GET /
-```
 
 ### 简单的 js 访问
 
