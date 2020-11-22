@@ -13,9 +13,3 @@ a:hover, a:active {
     box-shadow: 0 5px 0 rgb(134, 134, 134);
 }
 
-body {
-    text-align: center;
-    margin: 0 auto; 
-    color: rgb(0, 0, 0); 
-    background-color: rgb(240, 240, 240);
-}

@@ -82,6 +82,8 @@ github.com/chenguofan1999/cloudgo v0.9.2 h1:F1JqzbozsME2+yocA8RJz2n8QRRR7FwGMjrr
 github.com/chenguofan1999/cloudgo v0.9.2/go.mod h1:ORlarvDIC90zSaD4edr5ehaG5c+4GDUQ9R2IjrWk8oU=
 github.com/chenguofan1999/cloudgo v0.9.3 h1:Szx4l0H0EznO+5MtQS5XNcuUUpW2lyVfNTPOuhLv+zc=
 github.com/chenguofan1999/cloudgo v0.9.3/go.mod h1:ORlarvDIC90zSaD4edr5ehaG5c+4GDUQ9R2IjrWk8oU=
+github.com/chenguofan1999/cloudgo v0.9.7 h1:kxgSZxt/sKb/QNGx2TX34CQTbK6CT+xm5t1ifMGx8Wo=
+github.com/chenguofan1999/cloudgo v0.9.7/go.mod h1:ORlarvDIC90zSaD4edr5ehaG5c+4GDUQ9R2IjrWk8oU=
 github.com/codegangsta/negroni v1.0.0 h1:+aYywywx4bnKXWvoWtRfJ91vC59NbEhEY03sZjQhbVY=
 github.com/codegangsta/negroni v1.0.0/go.mod h1:v0y3T5G7Y1UlFfyxFn/QLRU4a2EuNau2iZY63YTKWo0=
 github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385/go.mod h1:0vRUJqYpeSZifjYj7uP3BG/gKcuzL9xWVV/Y+cK33KM=
